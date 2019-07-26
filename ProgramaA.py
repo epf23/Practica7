@@ -1,4 +1,5 @@
 from tkinter import *
+import os
 
 window = Tk()
 window.title('Programa A')
@@ -59,7 +60,13 @@ def escribir():
     fh.write(datos)
     fh.close()
 
+def ejecutar():
+    os.system('py ProgramaB.py '+IDCliente.get())
+    
 
 b = Button(window, text="Ingresar", command=escribir)
 b.grid(row= 15, column= 0)
+
+enviar = Button(window, text="Enviar parametro", command=ejecutar)
+enviar.grid(row=15, column=1)
 window.mainloop()
